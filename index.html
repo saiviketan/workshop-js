@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced JavaScript Quiz App</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f0f4f8;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .container {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        width: 90%;
+        max-width: 600px;
+      }
+      h1,
+      h2 {
+        color: #2c3e50;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      #quiz-screen,
+      #end-screen,
+      #high-scores {
+        display: none;
+      }
+      #question {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: #34495e;
+      }
+      .btn {
+        display: block;
+        width: 100%;
+        padding: 0.8rem;
+        margin-bottom: 0.8rem;
+        background-color: #3498db;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .btn:hover {
+        background-color: #2980b9;
+      }
+      #timer {
+        text-align: center;
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: #e74c3c;
+      }
+      #progress {
+        text-align: right;
+        margin-bottom: 1rem;
+        color: #7f8c8d;
+      }
+      #result {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 1rem;
+        font-size: 1.1rem;
+      }
+      .correct {
+        background-color: #2ecc71;
+      }
+      .incorrect {
+        background-color: #e74c3c;
+      }
+      input[type="text"] {
+        width: 70%;
+        padding: 0.8rem;
+        margin-bottom: 1rem;
+        border: 1px solid #bdc3c7;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+      #random-btn {
+        width: 25%;
+        padding: 0.8rem;
+        margin-bottom: 1rem;
+        background-color: #e67e22;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+      #random-btn:hover {
+        background-color: #d35400;
+      }
+      #navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+      }
+      #navigation button {
+        width: 48%;
+      }
+      .selected {
+        border: 2px solid #00f867;
+        background-color: #e8ef0c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Advanced JavaScript Quiz</h1>
+
+      <div id="start-screen">
+        <input type="text" id="name-input" placeholder="Enter your name" />
+        <button id="random-btn">Random Name</button>
+        <button id="start-btn" class="btn" onclick="startQuiz()">
+          Start Quiz
+        </button>
+        <button id="view-high-scores-btn" class="btn">View High Scores</button>
+      </div>
+
+      <div id="quiz-screen">
+        <div id="timer">Time: 60</div>
+        <div id="progress">Question 1 of 5</div>
+        <div id="question"></div>
+        <div id="answers"></div>
+        <div id="result"></div>
+        <div id="navigation">
+          <button id="prev-btn" class="btn" style="display: none">
+            Previous
+          </button>
+          <button id="save-next-btn" class="btn">Save & Next</button>
+        </div>
+      </div>
+
+      <div id="end-screen">
+        <h2>Quiz Completed!</h2>
+        <p id="final-score"></p>
+        <button id="save-score-btn" class="btn">Save Score</button>
+        <button id="restart-btn" class="btn">Restart Quiz</button>
+      </div>
+
+      <div id="high-scores"></div>
+    </div>
+  </body>
+  <script>
+    
+    let randomButton = document.getElementById("random-btn");
+    randomButton.addEventListener("onclick", function () {
+      let arr = ["sai", "mahesh", "naveen", "vamshi", "deekshith"];
+      for (data of arr) {
+        let name = Math.random(data);
+      }
+    });
+
+    function startQuiz() {
+      let startQuiz = document.getElementById("start-btn");
+
+      let screen = document.getElementById("quiz-screen");
+      let input = document.getElementById("name-input");
+      let random = document.getElementById("random-btn");
+      let startScreen = document.getElementById("start-screen");
+      startQuiz.innerHtml = screen.innerHtml;
+      random.style.backgroundColor="white"
+      let score = document.getElementById("view-high-score-button");
+      score.style.backgroundColor = "white";
+      input.style.display="none";
+
+    }
+  </script>
+</html>
